@@ -1,5 +1,8 @@
 import 'package:bookly/core/utils/app_assets.dart';
+import 'package:bookly/core/utils/app_router.dart';
+import 'package:bookly/features/splash/presentation/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -17,6 +20,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     slidingText();
+    navigateToHome(context);
   }
 
   @override
@@ -26,18 +30,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AppAssets.logo),
-        AnimatedBuilder(
-          animation: slidingAnimation,
-          builder: (context, child) => SlideTransition(
-            position: slidingAnimation,
-            child: Text(
-              'Read Free Books',
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ),
+        SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
+  }
+
+  void navigateToHome(context) {
+    Future.delayed(const Duration(seconds: 2), () {
+      GoRouter.of(context).push(AppRouter.homeView);
+    });
   }
 
   void slidingText() {
@@ -45,7 +46,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       vsync: this,
       duration: const Duration(seconds: 1),
     );
-    
+
     slidingAnimation = Tween<Offset>(
       begin: const Offset(0, 3),
       end: Offset.zero,
