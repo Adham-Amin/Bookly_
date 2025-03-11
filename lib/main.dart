@@ -1,4 +1,7 @@
+import 'package:bookly/core/utils/app_color.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const Bookly());
@@ -9,9 +12,13 @@ class Bookly extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: AppColor.primary,
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+      ),
+      routerConfig: AppRouter.router,
     );
   }
 }
