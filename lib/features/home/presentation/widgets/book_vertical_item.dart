@@ -2,7 +2,7 @@ import 'package:bookly/core/utils/app_color.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/app_styles.dart';
 import 'package:bookly/core/widgets/book_item.dart';
-import 'package:bookly/core/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
