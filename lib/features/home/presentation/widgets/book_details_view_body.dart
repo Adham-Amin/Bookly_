@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/app_assets.dart';
 import 'package:bookly/core/utils/app_color.dart';
 import 'package:bookly/core/utils/app_styles.dart';
 import 'package:bookly/features/home/presentation/widgets/book_item.dart';
@@ -29,7 +30,7 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           Text(
             'The Jungle Book',
-            style: AppStyles.textNormal30,
+            style: AppStyles.textNormal30.copyWith(fontFamily: AppAssets.gtSectra),
           ),
           SizedBox(
             height: 4,

@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/app_assets.dart';
 import 'package:bookly/core/utils/app_color.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/app_styles.dart';
@@ -34,7 +35,7 @@ class BookVerticalItem extends StatelessWidget {
                       'Harry Potter and the Goblet of Fire',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: AppStyles.textNormal20,
+                      style: AppStyles.textNormal20.copyWith(fontFamily: AppAssets.gtSectra),
                     ),
                     Text(
                       'J.K. Rowling',
