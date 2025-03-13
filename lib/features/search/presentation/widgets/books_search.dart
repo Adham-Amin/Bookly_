@@ -6,10 +6,12 @@ class SearchBooks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 10,
-      physics: BouncingScrollPhysics(),
-      itemBuilder: (context, index) => BookVerticalItem(),
+    return Expanded(
+      child: ListView.builder(
+        itemCount: 10,
+        physics: BouncingScrollPhysics(),
+        itemBuilder: (context, index) => BookVerticalItem(),
+      ),
     );
   }
 }
