@@ -1,4 +1,4 @@
-import 'package:bookly/core/widgets/book_item.dart';
+import 'package:bookly/features/home/presentation/widgets/book_item.dart';
 import 'package:flutter/material.dart';
 
 class BooksHorizontal extends StatelessWidget {

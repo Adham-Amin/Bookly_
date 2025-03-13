@@ -1,5 +1,5 @@
 import 'package:bookly/features/home/presentation/widgets/books_horizontal.dart';
-import 'package:bookly/features/home/presentation/widgets/books_vertical.dart';
+import 'package:bookly/features/home/presentation/widgets/free_books.dart';
 import 'package:bookly/features/home/presentation/widgets/text_free_books.dart';
 import 'package:flutter/material.dart';
 
@@ -28,9 +28,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverToBoxAdapter(
-          child: BooksVertical(),
-        ),
+        FreeBooks(),
       ],
     );
   }
