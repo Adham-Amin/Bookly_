@@ -1,3 +1,4 @@
+import 'package:bookly/core/functions/launch_book.dart';
 import 'package:bookly/core/utils/app_assets.dart';
 import 'package:bookly/core/utils/app_color.dart';
 import 'package:bookly/core/utils/app_styles.dart';
@@ -6,6 +7,7 @@ import 'package:bookly/features/home/presentation/widgets/book_item.dart';
 import 'package:bookly/features/home/presentation/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/widgets/button_books_details.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.book});
@@ -18,7 +20,7 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.24,
           ),
-          child: BookItem(imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? 'http://books.google.com/books/content?id=DXwRAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+          child: BookItem(imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? ''),
         ),
         SizedBox(
           height: 42,
@@ -49,7 +51,11 @@ class BookDetailsSection extends StatelessWidget {
         SizedBox(
           height: 36,
         ),
-        ButtonBookDetails(),
+        ButtonBookDetails(
+          onPressed: () async {
+            await launchBook(context, book.volumeInfo!.previewLink!);
+          },
+        ),
       ],
     );
   }

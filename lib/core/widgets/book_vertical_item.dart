@@ -24,7 +24,7 @@ class BookVerticalItem extends StatelessWidget {
           },
           child: Row(
             children: [
-              BookItem(imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? 'http://books.google.com/books/content?id=DXwRAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',),
+              BookItem(imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? '',),
               SizedBox(
                 width: 30,
               ),

@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 class ButtonBookDetails extends StatelessWidget {
   const ButtonBookDetails({
-    super.key,
+    super.key, required this.onPressed,
   });
+
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class ButtonBookDetails extends StatelessWidget {
         children: [
           Expanded(
             child: CustomButton(
-              text: '19.99 \$',
+              text: 'Buy Now',
               textColor: AppColor.black,
               backgroundColor: AppColor.white,
               borderRadius: BorderRadius.only(
@@ -26,6 +28,7 @@ class ButtonBookDetails extends StatelessWidget {
           ),
           Expanded(
             child: CustomButton(
+              onPressed: onPressed,
               text: 'Free Preview',
               textColor: AppColor.white,
               backgroundColor: AppColor.burntSienna,

@@ -30,7 +30,7 @@ class BooksHorizontal extends StatelessWidget {
                     child: BookItem(
                       imageUrl: state
                               .books[index].volumeInfo?.imageLinks?.thumbnail ??
-                          'http://books.google.com/books/content?id=DXwRAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+                          '',
                     )),
               ),
             ),
