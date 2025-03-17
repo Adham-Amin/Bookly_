@@ -24,7 +24,7 @@ class HorizontalBooksDetails extends StatelessWidget {
               itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.only(right: 16),
                 child: InkWell(
-                  onTap: () => GoRouter.of(context).push(
+                  onTap: () => GoRouter.of(context).pushReplacement(
                       AppRouter.bookDetailsView,
                       extra: state.books[index]),
                   child: BookItem(
