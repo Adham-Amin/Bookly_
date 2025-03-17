@@ -10,7 +10,8 @@ class SearchBooks extends StatelessWidget {
       child: ListView.builder(
         itemCount: 10,
         physics: BouncingScrollPhysics(),
-        itemBuilder: (context, index) => BookVerticalItem(),
+        itemBuilder: (context, index) => SizedBox()
+        // BookVerticalItem(),
       ),
     );
   }

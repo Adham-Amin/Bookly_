@@ -2,14 +2,16 @@ import 'package:bookly/core/utils/app_assets.dart';
 import 'package:bookly/core/utils/app_color.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/app_styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/widgets/book_item.dart';
 import 'package:bookly/features/home/presentation/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookVerticalItem extends StatelessWidget {
-  const BookVerticalItem({super.key});
+  const BookVerticalItem({super.key, required this.book});
 
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,11 +20,11 @@ class BookVerticalItem extends StatelessWidget {
         height: 120,
         child: InkWell(
           onTap: () {
-            GoRouter.of(context).push(AppRouter.bookDetailsView);
+            GoRouter.of(context).push(AppRouter.bookDetailsView, extra: book);
           },
           child: Row(
             children: [
-              BookItem(),
+              BookItem(imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? 'http://books.google.com/books/content?id=DXwRAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',),
               SizedBox(
                 width: 30,
               ),
@@ -32,13 +34,13 @@ class BookVerticalItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Harry Potter and the Goblet of Fire',
+                      book.volumeInfo?.title ?? 'N/A',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: AppStyles.textNormal20.copyWith(fontFamily: AppAssets.gtSectra),
                     ),
                     Text(
-                      'J.K. Rowling',
+                      book.volumeInfo?.authors?[0] ?? 'N/A',
                       style: AppStyles.textMedium14.copyWith(
                         color: AppColor.grey,
                       ),
@@ -47,12 +49,15 @@ class BookVerticalItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '19.99 €',
+                          'Free',
                           style: AppStyles.textNormal20.copyWith(
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        BookRating(),
+                        BookRating(
+                          rating: 4.7,
+                          count: book.volumeInfo?.pageCount ?? 0,
+                        ),
                       ],
                     ),
                   ],

@@ -14,7 +14,7 @@ class HorizontalBooksDetails extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.only(right: 16),
-          child: const BookItem(),
+          child: BookItem(imageUrl: 'http://books.google.com/books/content?id=DXwRAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',),
         ),
       ),
     );
