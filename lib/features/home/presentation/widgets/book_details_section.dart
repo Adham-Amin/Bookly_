@@ -7,7 +7,6 @@ import 'package:bookly/features/home/presentation/widgets/book_item.dart';
 import 'package:bookly/features/home/presentation/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/widgets/button_books_details.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.book});
@@ -28,6 +27,8 @@ class BookDetailsSection extends StatelessWidget {
         Text(
           book.volumeInfo?.title ?? 'N/A',
           textAlign: TextAlign.center,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           style:
               AppStyles.textNormal30.copyWith(fontFamily: AppAssets.gtSectra),
         ),
@@ -36,6 +37,9 @@ class BookDetailsSection extends StatelessWidget {
         ),
         Text(
           book.volumeInfo?.authors?[0] ?? 'N/A',
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
           style: AppStyles.textSeBold18.copyWith(
               color: AppColor.grey,
               fontWeight: FontWeight.w500,

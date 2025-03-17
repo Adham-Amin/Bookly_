@@ -16,8 +16,13 @@ class SearchRepoImpl implements SearchRepo {
       Map<String, dynamic> data = await apiService.get(
           endPoint: '/volumes?Filtering=free-ebooks&q=subject:$bookName');
       List<BookModel> books = [];
-      for (var book in data["items"]) {
-        books.add(BookModel.fromJson(book));
+
+      for (var book in data["items"] ?? []) {
+        try {
+          books.add(BookModel.fromJson(book));
+        } catch (e) {
+          books.add(BookModel.fromJson(book));
+        }
       }
 
       return right(books);

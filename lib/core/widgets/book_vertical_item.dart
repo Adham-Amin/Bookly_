@@ -41,6 +41,8 @@ class BookVerticalItem extends StatelessWidget {
                     ),
                     Text(
                       book.volumeInfo?.authors?[0] ?? 'N/A',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: AppStyles.textMedium14.copyWith(
                         color: AppColor.grey,
                       ),
