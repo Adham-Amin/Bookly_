@@ -1,6 +1,10 @@
+import 'package:bookly/core/utils/services_locator.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/home/data/repos/home_repo_impl.dart';
+import 'package:bookly/features/home/presentation/manager/similer_books/similer_books_cubit.dart';
 import 'package:bookly/features/home/presentation/widgets/book_details_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class BookDetailsView extends StatelessWidget {
@@ -26,7 +30,14 @@ class BookDetailsView extends StatelessWidget {
           ),
         ],
       ),
-      body: BookDetailsViewBody(book: book,),
+      body: BlocProvider(
+        create: (context) => SimilerBooksCubit(
+          getIt.get<HomeRepoImpl>(),
+        ),
+        child: BookDetailsViewBody(
+          book: book,
+        ),
+      ),
     );
   }
 }
